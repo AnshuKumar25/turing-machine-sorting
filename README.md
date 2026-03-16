@@ -217,7 +217,7 @@ The system will show the **step-by-step sorting simulation**.
 
 **Anshu Kumar**
 
-Computer Engineering Student
+Computer Science & Engineering Student
 
 ---
 
