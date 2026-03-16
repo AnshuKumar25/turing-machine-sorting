@@ -1,0 +1,164 @@
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Headings - More Noticeable */
+h1, h2 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffcc00; /* Bright yellow-gold for visibility */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+/* Input Styling - Smaller Width & Bold */
+input {
+    width: 50%; /* Reduced size to half */
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-align: center;
+    font-weight: bold; /* Input text bold */
+}
+
+/* Button Styling */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+button {
+    padding: 12px 18px;
+    font-size: 14px;
+    cursor: pointer;
+    background: #ff7eb3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #ff5177;
+    transform: scale(1.05);
+}
+
+/* Sorted Output - Light Background */
+#result {
+    font-size: 18px;
+    font-weight: bold;
+    background: #d9fbee; /* Light teal background */
+    color: #333;
+    padding: 12px;
+    border-radius: 10px;
+    display: inline-block;
+    min-width: 50%;
+    margin-top: 10px;
+    box-shadow: 0px 4px 12px rgba(217, 251, 238, 0.5);
+}
+
+/* Simulation Steps Table Styling */
+#simulation-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+}
+
+#simulation-table th, #simulation-table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+#simulation-table th {
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    font-weight: bold;
+}
+
+#simulation-table tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+#simulation-table tr:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Simulation & Transition Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+th {
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+tr:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Dark Mode Support */
+.dark-mode {
+    background: #121212;
+    color: #ffffff;
+}
+
+.dark-mode .container {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode table {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode th, .dark-mode td {
+    color: white;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark-mode tr:hover {
+    background: rgba(255, 255, 255, 0.4);
+}

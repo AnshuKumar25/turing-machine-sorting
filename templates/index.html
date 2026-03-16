@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turing Machine Sort</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Turing Machine Sorting</h1>
+        <input type="text" id="numbers" placeholder="Enter numbers separated by #">
+        <div class="button-group">
+            <button onclick="sortNumbers()">Sort</button>
+            <button onclick="reset()">Reset</button>
+        </div>
+        <h2>Sorted Output:</h2>
+        <p id="result"></p>
+        
+        <h2>Simulation Steps:</h2>
+        <table id="simulation-table">
+            <thead>
+                <tr>
+                    <th>Step Number</th>
+                    <th>Output Steps</th>
+                </tr>
+            </thead>
+            <tbody id="simulation-body"></tbody>
+        </table>
+
+        <h2>Transition Function Table:</h2>
+        <table id="transition-table">
+            <thead>
+                <tr>
+                    <th>Current State</th>
+                    <th>Read Symbol</th>
+                    <th>Next State</th>
+                    <th>Write Symbol</th>
+                    <th>Move</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script>
+        function sortNumbers() {
+            let numbers = document.getElementById("numbers").value;
+            fetch("/sort", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ numbers: numbers })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("result").innerText = data.sorted_tape;
+                
+                let simulationBody = document.getElementById("simulation-body");
+                simulationBody.innerHTML = "";
+                data.simulation_steps.forEach((step, index) => {
+                    let tr = document.createElement("tr");
+                    let stepNumberTd = document.createElement("td");
+                    stepNumberTd.innerText = index + 1; // Step number starts from 1
+                    let outputStepTd = document.createElement("td");
+                    outputStepTd.innerText = step;
+                    tr.appendChild(stepNumberTd);
+                    tr.appendChild(outputStepTd);
+                    simulationBody.appendChild(tr);
+                });
+
+                let transitionTable = document.getElementById("transition-table").getElementsByTagName('tbody')[0];
+                transitionTable.innerHTML = "";
+                data.transition_table.forEach(row => {
+                    let tr = document.createElement("tr");
+                    Object.values(row).forEach(value => {
+                        let td = document.createElement("td");
+                        td.innerText = value;
+                        tr.appendChild(td);
+                    });
+                    transitionTable.appendChild(tr);
+                });
+            });
+        }
+
+        function reset() {
+            document.getElementById("numbers").value = "";
+            document.getElementById("result").innerText = "";
+            document.getElementById("simulation-body").innerHTML = "";
+            document.getElementById("transition-table").getElementsByTagName('tbody')[0].innerHTML = "";
+        }
+    </script>
+</body>
+</html>
